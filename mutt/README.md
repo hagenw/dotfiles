@@ -5,8 +5,7 @@
 The following programs need to be installed:
 
 ```
-sudo apt install lynx notmuch-mutt khard vdirsyncer
-pip3 install --user urlscan
+sudo apt install lynx notmuch-mutt khard vdirsyncer urlscan
 
 ```
 
