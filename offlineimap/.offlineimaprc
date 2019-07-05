@@ -1,0 +1,207 @@
+[general]
+accounts = Posteo,audEERING,Kkdu
+pythonfile=~/.offlineimap.py
+fsync = False
+maxsyncaccounts = 3
+
+# === Accounts ===
+#
+# Documentation on settings
+#
+# autorefresh : minutes between syncs
+# quick       : quick-syncs do not update if the only changes were to IMAP
+#               flags
+#
+# `autorefresh=0.5` together with `quick=10` yields 10 quick refreshes between
+# each full refresh, with 0.5 minutes between every refresh, regardless of type.
+
+[Account Posteo]
+localrepository = PosteoLocal
+remoterepository = PosteoRemote
+postsynchook = notmuch new
+autorefresh = 0.5
+quick = 10
+
+[Account Kkdu]
+localrepository = KkduLocal
+remoterepository = KkduRemote
+#postsynchook = notmuch new
+autorefresh = 0.5
+quick = 10
+
+[Account audEERINGStrato]
+localrepository = audEERINGLocalStrato
+remoterepository = audEERINGRemoteStrato
+#postsynchook = notmuch new
+autorefresh = 0.5
+quick = 10
+
+[Account audEERING]
+localrepository = audEERINGLocal
+remoterepository = audEERINGRemote
+#postsynchook = notmuch new
+autorefresh = 0.5
+quick = 10
+
+
+[Repository PosteoLocal]
+type = Maildir
+localfolders = ~/.mail/posteo.de
+restoreatime = no
+nametrans = lambda folder: {'drafts':  'Drafts',
+                            'inbox':   'INBOX',
+                            'sent':    'Sent',
+                            'trash':   'Trash',
+                            }.get(folder, folder)
+
+[Repository PosteoRemote]
+type = IMAP
+remotehost = posteo.de
+remoteuser = hagen.wierstorf@posteo.de
+remotepasseval = get_password("posteo.de")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Instead of closing the connection once a sync is complete, offlineimap will
+# send empty data to the server to hold the connection open. A value of 60
+# attempts to hold the connection for a minute between syncs (both quick and
+# autorefresh).This setting has no effect if autorefresh and holdconnectionopen
+# are not both set.
+keepalive = 60
+# OfflineIMAP normally closes IMAP server connections between refreshes if
+# the global option autorefresh is specified.  If you wish it to keep the
+# connection open, set this to true. This setting has no effect if autorefresh
+# is not set.
+holdconnectionopen = yes
+nametrans = lambda folder: {'Drafts':  'drafts',
+                            'INBOX':   'inbox',
+                            'Sent':    'sent',
+                            'Trash':   'trash',
+                            }.get(folder, folder)
+
+[Repository KkduLocal]
+type = Maildir
+localfolders = ~/.mail/kkdu.org
+restoreatime = no
+nametrans = lambda folder: {'drafts':      'Drafts',
+                            'inbox':       'INBOX',
+                            'sent':        'Gesendet',
+                            'trash':       'Trash',
+                            'auditory':    'INBOX.Uni.AUDITORY',
+                            'gnuplotting': 'INBOX.Gnuplotting',
+                            }.get(folder, folder)
+
+[Repository KkduRemote]
+type = IMAP
+remotehost = wp109.webpack.hosteurope.de
+remoteuser = wp1113370-hagen
+remotepasseval = get_password("kkdu.org")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Instead of closing the connection once a sync is complete, offlineimap will
+# send empty data to the server to hold the connection open. A value of 60
+# attempts to hold the connection for a minute between syncs (both quick and
+# autorefresh).This setting has no effect if autorefresh and holdconnectionopen
+# are not both set.
+keepalive = 60
+# OfflineIMAP normally closes IMAP server connections between refreshes if
+# the global option autorefresh is specified.  If you wish it to keep the
+# connection open, set this to true. This setting has no effect if autorefresh
+# is not set.
+holdconnectionopen = yes
+nametrans = lambda folder: {'Drafts':             'drafts',
+                            'INBOX':              'inbox',
+                            'Gesendet':           'sent',
+                            'Trash':              'trash',
+                            'INBOX.Uni.AUDITORY': 'auditory',
+                            'INBOX.Gnuplotting':  'gnuplotting',
+                            }.get(folder.decode('imap4-utf-7').encode('utf-8'), folder.decode('imap4-utf-7').encode('utf-8'))
+folderfilter = lambda folder: folder.decode('imap4-utf-7').encode('utf-8') not in ['Deleted Messages',
+                                             'Entwuerfe',
+                                             'Entwürfe',
+                                             'Gesendete Objekte',
+                                             'INBOX.Matroska',
+                                             'INBOX.Gnuplot-beta',
+                                             'INBOX.Gnuplot-info',
+                                             'INBOX.Politik',
+                                             'INBOX.Politik.isl',
+                                             'INBOX.Politik.isl-aktuell',
+                                             'INBOX.Politik.isl-ol',
+                                             'INBOX.Politik.rsb',
+                                             'INBOX.Uni',
+                                             'INBOX.Uni.fmrt',
+                                             'INBOX.Uni.idem',
+                                             'INBOX.Uni.medi',
+                                             'INBOX.Uni.medi-cluster',
+                                             'INBOX.Uni.medi-cluster.logwatch',
+                                             'INBOX.Uni.medi-doktorhut',
+                                             'INBOX.Uni.medi-fussi',
+                                             'INBOX.Uni.medi-kultur',
+                                             'INBOX.Uni.medi-latex',
+                                             'INBOX.Uni.medi-linux',
+                                             'INBOX.Uni.medi-matlab',
+                                             'INBOX.Uni.medi-modelle',
+                                             'INBOX.Uni.medi-neuro',
+                                             'INBOX.Uni.medi-termine',
+                                             'INBOX.Werbung',
+                                             'Papierkorb',
+                                             'Queue',
+                                             'Sent',
+                                             'Sent Messages',
+                                             'Spam',
+                                             'SPAM',
+                                             ]
+
+[Repository audEERINGLocalStrato]
+type = Maildir
+localfolders = ~/.mail/audeering.com.strato
+restoreatime = no
+nametrans = lambda folder: {'drafts':  'Drafts',
+                            'inbox':   'INBOX',
+                            'sent':    'Sent Items',
+                            'trash':   'Trash',
+                            'archive': 'Archive',
+                            'spam':    'Spam',
+                            }.get(folder, folder)
+
+[Repository audEERINGRemoteStrato]
+type = IMAP
+remotehost = imap.strato.de
+remoteuser = hwierstorf@audeering.com
+remotepasseval = get_password("audeering.com")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder: {'Drafts':     'drafts',
+                            'INBOX':      'inbox',
+                            'Sent Items': 'sent',
+                            'Trash':      'trash',
+                            'Archive':    'archive',
+                            'Spam':       'spam',
+                            }.get(folder, folder)
+
+[Repository audEERINGLocal]
+type = Maildir
+localfolders = ~/.mail/audeering.com
+restoreatime = no
+nametrans = lambda folder: {'drafts':  'Entw&APw-rfe',
+                            'inbox':   'INBOX',
+                            'sent':    'Gesendete Objekte',
+                            'trash':   'Papierkorb',
+                            'archive': 'Archive',
+                            'spam':    'Spam',
+                            }.get(folder, folder)
+
+[Repository audEERINGRemote]
+type = IMAP
+remotehost = wp13277175.mail.server-he.de
+remoteuser = wp13277175-hwierstorf
+remotepasseval = get_password("audeering.com")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder: {'Entw&APw-rfe':      'drafts',
+                            'INBOX':             'inbox',
+                            'Gesendete Objekte': 'sent',
+                            'Papierkorb':        'trash',
+                            'Archive':           'archive',
+                            'Spam':              'spam',
+                            }.get(folder, folder)
+# vim: ft=cfg
