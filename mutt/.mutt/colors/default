@@ -1,0 +1,20 @@
+# === Coloring ===
+color attachment brightyellow default
+color body       green        default "(http|ftp|news|telnet)s?://[^ \"\t\r\n]*" # urls
+color body       green        default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"         # mail addresses
+color hdrdefault cyan         default
+color header     brightblue   default "^From:"
+color header     brightgreen  default "^Subject:"
+color index      brightyellow default "~v"                                       # collapsed thread
+color index      brightgreen  default "~N"
+color indicator  white        blue
+color markers    brightred    default
+color message    white        default
+color normal     white        default
+color quoted     green        default
+color signature  yellow       default
+color status     black        cyan
+color tilde      blue         default
+color tree       red          default                                            # thread
+
+# vim:set filetype=muttrc:

@@ -1,0 +1,39 @@
+# === Mail account ===
+set realname = "Hagen Wierstorf"
+set from = "hagen.wierstorf@tu-ilmenau.de"
+#set hostname = "tu-ilmenau.de"
+set imap_user = "hawi7526"
+#set imap_login = "hawi7526"
+set folder = "imap://imap.tu-ilmenau.de"
+set spoolfile = "+INBOX"
+set trash = "Trash"
+set record="=Sent"
+set postponed="=Drafts"
+set smtp_url="smtp://hawi7526@smail.tu-ilmenau.de:587"
+# Allow for automatic reply by the to address
+#set reverse_name
+#alternates ^hagen.wierstorf@posteo.de$ ^hagen.wierstorf@posteo.net$ ^hagenw@posteo.de$
+# Activate TLS if available on the server
+set ssl_starttls=yes
+# Always use SSL when connecting to a server
+set ssl_force_tls=yes
+# Don't wait to enter mailbox manually
+unset imap_passive
+# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+set imap_check_subscribed
+# Reduce polling frequency to a sane level
+set mail_check=60
+# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+set timeout=10
+# Display download progress every 5K
+set net_inc=5
+# Get password using libsecret-tool
+set my_pass = "`secret-tool lookup password hagen.wierstorf@tu-ilmenau.de`"
+#set imap_pass = $my_pass
+set imap_pass = 
+set smtp_pass = $my_pass
+# Include the profile in the status line (and xterm title)
+# see: http://www.mutt.org/doc/manual/#status-format
+set status_format="mutt_xtitle '%?n?(%n new) ?@tu-ilmenau.de %m msgs in %f (%L)'|"
+
+# vim:set filetype=muttrc:

@@ -1,0 +1,17 @@
+# === Mail account ===
+set from = "hagen@kkdu.org"
+set realname = "Hagen Wierstorf"
+set spoolfile = "+kkdu.org/inbox"
+set trash = "+kkdu.org/trash"
+set record="+kkdu.org/sent"
+set postponed="+kkdu.org/drafts"
+set smtp_url="smtp://wp1113370-hagen@wp109.webpack.hosteurope.de:25"
+set smtp_pass = "`~/.offlineimap.py kkdu.org`"
+# Allow for automatic reply by the to address
+set reverse_name
+alternates ^hagen@kkdu.org$ ^hagen@gnuplotting.org$ ^mail@gnuplotting$
+# Include the profile in the status line (and xterm title)
+# see: http://www.mutt.org/doc/manual/#status-format
+set status_format="mutt_xtitle '%?n?(%n) ?%?b?[%b] ?@kkdu.org %m msgs in %f (%L)'|"
+
+# vim:set filetype=muttrc:
