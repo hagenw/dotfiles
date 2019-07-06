@@ -1,1 +1,3 @@
---target=~
+# ~ will only worjk with stow 2.3.0, see
+# https://github.com/aspiers/stow/pull/40
+--target=/home/hagen
