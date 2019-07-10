@@ -1,0 +1,1 @@
+https://github.com/vim-pandoc/vim-pandoc-syntax.git

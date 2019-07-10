@@ -1,0 +1,1 @@
+/home/hagen/git/bubblegum/colors/gum-256-dark.vim
