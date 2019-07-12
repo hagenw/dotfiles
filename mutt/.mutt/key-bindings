@@ -19,6 +19,7 @@ bind index          x           next-unread-mailbox
 bind compose        f           edit-from
 bind compose        <ESC>f      edit-fcc
 
+
 # === Key bindings (macros) ===
 macro index         d           "<enter-command>set resolve=no<enter>\
 <tag-prefix><clear-flag>N\
@@ -30,6 +31,10 @@ macro index         R           "T~N<enter>;WO\CT~T<enter>"                 "mar
 macro index,pager   A           "<pipe-message>khard add-email<enter>"      "add the sender email address to khard"
 macro index,pager   H           "<pipe-message>htmail-decode<enter>"        "render html mail using htmail-view"    # see https://github.com/liske/htmail-view
                                                                                                                     # requires libmime-tools-perl
+# urlscan
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
 # === Key bindings (search) ===
 # 'L' performs a notmuch query, showing only the results
 macro index L "<enter-command>unset wait_key<enter>\

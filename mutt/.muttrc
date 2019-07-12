@@ -59,37 +59,9 @@ set mime_forward=yes
 set mime_forward_rest=yes # forward attachments
 
 # === Key bindings ===
-bind attach         <enter>     view-mailcap    # 'enter' runs html-viewer defined in mailcap on attachment
-bind editor         <Tab>       complete-query  # 'Tab' completes query_command
-bind editor         ^T          complete        # '^T' completes alias
-bind pager          <up>        previous-line
-bind pager          <down>      next-line
-bind pager          <left>      previous-entry
-bind pager          <right>     next-entry
-bind pager,index    <space>     next-unread
-bind index          g           first-entry
-bind index          G           last-entry
-bind index          <insert>    tag-entry       # 'insert' tags messages (like in mc)
-bind index          *           tag-entry
-bind index          /           search-reverse  # '/' as default search (reverse behavior)
-bind index          <ESC>/      search
-bind index          -           collapse-thread
-bind index          _           collapse-all
-bind index          x           next-unread-mailbox
-bind compose        f           edit-from
-bind compose        <ESC>f      edit-fcc
+source ~/.mutt/key-bindings
 
-# === Key bindings (macros) ===
-macro index         d           "<enter-command>set resolve=no<enter>\
-<tag-prefix><clear-flag>N\
-<enter-command>set resolve=yes<enter>\
-<tag-prefix><delete-message><sync-mailbox>"                                 "mark message as read and move immediately to trash"
-macro index         $           "<shell-escape>~/.mutt/sync_imap.sh<enter>" "run offlineimap to sync all mail"
-#macro index         a           "M <limit>all<enter><collapse-all>"         "show all messages (undo limit)"
-macro index         R           "T~N<enter>;WO\CT~T<enter>"                 "mark all messages as read"             # see http://blog.jwcxz.com/?p=810
-macro index,pager   A           "<pipe-message>khard add-email<enter>"      "add the sender email address to khard"
-macro index,pager   H           "<pipe-message>htmail-decode<enter>"        "render html mail using htmail-view"    # see https://github.com/liske/htmail-view
-                                                                                                                    # requires libmime-tools-perl
+                                                                                                                   # requires libmime-tools-perl
 # === Contacts ===
 # Use CardDAV for address book,
 # see https://github.com/scheibler/khard
@@ -119,12 +91,3 @@ set print_command='set -e; f=`mktemp`; muttprint -P A4 -p TO_FILE:"$f"; evince "
 # TODO: check if this is neccessary for maildir
 set message_cachedir="~/.mutt/cache/"
 set header_cache="~/.mutt/cache/"
-
-# === Searching (notmuch settings) ===
-# 'L' performs a notmuch query, showing only the results
-macro index L "<enter-command>unset wait_key<enter>\
-<shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter>\
-<limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>"\
-                "show only messages matching a notmuch pattern"
-# 'a' shows all messages again (supersedes default <alias> binding)
-macro index a "<limit>all<enter>" "show all messages (undo limit)"
