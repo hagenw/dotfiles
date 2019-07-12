@@ -1,0 +1,98 @@
+# Defining an informative bashprompt
+#
+# Place this file under your home directory and add this line to your .bashrc:
+# . $HOME/.bashpromptrc
+
+# Disable builtin python env display.
+VIRTUAL_ENV_DISABLE_PROMPT=1 # disable builtin python env display
+# If you use conda, you have to disable the prompt with
+# conda config --set changeps1  false
+
+declare -r YELLOW="\001\e[00;34m\002"
+declare -r BLUE="\001\e[01;34m\002"
+declare -r ORANGE="\001\e[01;31m\002"
+declare -r CYAN="\001\e[00;36m\002"
+declare -r GRAY="\001\e[00;90m\002"
+declare -r NORMAL="\001\e[01;37m\002"
+
+PS1="\\n\$(_prompt_date  \"${YELLOW}\" \"${BLUE}\")"
+PS1+="\$(_prompt_dir    \"${YELLOW}\" \"${ORANGE}\")"
+PS1+="\$(_prompt_python \"${YELLOW}\" \"${GRAY}\")"
+PS1+="\$(_prompt_git    \"${YELLOW}\" \"${GRAY}\")"
+PS1+="\\n\$(_prompt_ps1  \"${BLUE}\"   \"${NORMAL}\")"
+PS2="\$(_prompt_ps2     \"${BLUE}\"   \"${NORMAL}\")"
+
+# (hh:mm)
+# $1 - color of brackets
+# $2 - color of date
+_prompt_date() {
+    local color_bracket="$1"
+    local color_date="$2"
+    echo -e "${color_bracket}(${color_date}$(date +%H:%M)${color_bracket})"
+}
+
+# (dir)
+# $1 - color of brackets
+# $2 - color of dir
+_prompt_dir() {
+    local color_bracket="$1"
+    local color_dir="$2"
+    echo -e "${color_bracket}($(_host)${color_dir}${PWD/${HOME}/\~}${color_bracket})"
+}
+
+# [python_env]
+# $1 - color of bracktes
+# $2 - color of virtual environment
+_prompt_python() {
+    local color_bracket="$1"
+    local color_venv="$2"
+    if [ ! -z "${VIRTUAL_ENV}" ]; then
+        echo -e " ${color_bracket}[py:${color_venv}$(basename "${VIRTUAL_ENV}")${color_bracket}]"
+    elif [ ! -z "${CONDA_DEFAULT_ENV}" ]; then
+        echo -e " ${color_bracket}[conda:${color_venv}$(basename "${CONDA_DEFAULT_ENV}")${color_bracket}]"
+    else
+        echo -e ""
+    fi
+}
+
+# (branch)
+# $1 - color of brackets
+# $2 - color of active branch
+_prompt_git() {
+    local color_bracket="$1"
+    local color_branch="$2"
+    if [ -z "$(__git_ps1 '%s')" ]; then
+        echo -e ""
+    else
+        echo -e " ${color_bracket}(${color_branch}$(__git_ps1 '%s')${color_bracket})"
+    fi
+}
+
+# ~>
+# $1 - color of prompt
+# $2 - color after prompt (normal color)
+_prompt_ps1() {
+    local color_prompt="$1"
+    local color_normal="$2"
+    echo -e "${color_prompt}~> ${color_normal}"
+}
+
+#  >
+# $1 - color of prompt
+# $2 - color after prompt (normal color)
+_prompt_ps2() {
+    local color_prompt="$1"
+    local color_normal="$2"
+    echo -e "${color_prompt} > ${color_normal}"
+}
+
+# hostname: for non-local machines
+_host() {
+    # Display no hostname on local machines or inside tmux
+    if is empty "$(who am i)" || is not empty "${TMUX}"; then
+        echo -e ""
+    else
+        echo -e "$(hostname):"
+    fi
+}
+# vim: set syntax=sh:
