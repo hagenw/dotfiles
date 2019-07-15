@@ -6,7 +6,7 @@ set trash = "+audeering.com/trash"
 set record="+audeering.com/sent"
 set postponed="+audeering.com/drafts"
 set smtp_url="smtps://wp13277175-hwierstorf@wp13277175.mailout.server-he.de:465"
-set smtp_pass = "`~/.offlineimap.py audeering.com`"
+set smtp_pass = "`pass mail/audeering.com`"
 # Allow for automatic reply by the to address
 set reverse_name
 

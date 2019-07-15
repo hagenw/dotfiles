@@ -7,7 +7,7 @@ set record="+tu-berlin.de/sent"
 set postponed="+tu-berlin.de/drafts"
 set smtp_url="smtp://hagen.wierstorf@win.tu-berlin.de@exchange.tu-berlin.de:587"
 set smtp_authenticators="login"
-set smtp_pass = "`~/.offlineimap.py tu-berlin.de`"
+set smtp_pass = "`pass mail/tu-berlin.de`"
 # Include the profile in the status line (and xterm title)
 # see: http://www.mutt.org/doc/manual/#status-format
 set status_format="mutt_xtitle '%?n?(%n) ?%?b?[%b] ?@tu-berlin.de %m msgs in %f (%L)'|"

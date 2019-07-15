@@ -6,7 +6,7 @@ set trash = "+posteo.de/trash"
 set record="+posteo.de/sent"
 set postponed="+posteo.de/drafts"
 set smtp_url="smtp://hagen.wierstorf@posteo.de@posteo.de:587"
-set smtp_pass = "`~/.offlineimap.py posteo.de`"
+set smtp_pass = "`pass mail/posteo.de`"
 # Allow for automatic reply by the to address
 set reverse_name
 alternates ^hagen.wierstorf@posteo.de$ ^hagen.wierstorf@posteo.net$ ^hagenw@posteo.de$

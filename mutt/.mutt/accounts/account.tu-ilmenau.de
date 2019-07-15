@@ -28,7 +28,7 @@ set timeout=10
 # Display download progress every 5K
 set net_inc=5
 # Get password using libsecret-tool
-set my_pass = "`secret-tool lookup password hagen.wierstorf@tu-ilmenau.de`"
+set my_pass = "`pass mail/tu-ilmenau.de`"
 #set imap_pass = $my_pass
 set imap_pass = 
 set smtp_pass = $my_pass
