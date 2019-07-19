@@ -13,11 +13,18 @@ export EDITOR=vim
 # --- Global definitions (no longer used on Debian systems)
 [[ -f '/etc/bashrc' ]] && source '/etc/bashrc'
 #
-# --- Load scripts (https://github.com/hagenw/simply-bash)
-if [[ -d "${HOME}/git/simply-bash" ]]; then
-    source "${HOME}/git/simply-bash/simply-bash.sh"
+# -- Package manager basher (https://github.com/basherpm/basher)
+if [[ -d "${HOME}/.basher" ]]; then
+    PATH="${PATH}:$HOME/.basher/bin"
+    eval "$(basher init -)"
 else
-    echo "Minimal .bashrc loaded, please install https://github.com/hagenw/simply-bash for full version."
+    echo "WARNING: basher missing, loaded minimal .bashrc"
+    return
+fi
+#
+# --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
+if ! hash is 2>/dev/null; then
+    echo "WARNING: hagenw/simply-bash not installed, loaded minimal .bashrc"
     return
 fi
 
@@ -78,22 +85,21 @@ is executable '/usr/bin/lesspipe' && eval "$(lesspipe)"
 #
 # --- Plugins
 # Bash History Suggest Box (https://github.com/dvorka/hstr)
-export HH_CONFIG=monochromatic   # avoid color as they cannot be configured
-shopt -s histappend              # append new history items to .bash_history
-export HISTCONTROL=ignorespace   # leading space hides commands from history
-export HISTFILESIZE=10000        # increase history file size (default is 500)
-export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"  # mem/file sync
-is executable 'hh' && bind '"\C-r": "\C-a hh \C-j"'    # bind to Ctrl-r
-# bashmarks (https://github.com/huyng/bashmarks)
-is file "${HOME}/.bin/bashmarks.sh" && source "${HOME}/.bin/bashmarks.sh"
-# pdf-tools (https://github.com/hagenw/pdf-tools)
-is dir "${HOME}/git/pdf-tools" && PATH="${PATH}:${HOME}/git/pdf-tools"
-# basher (https://github.com/basherpm/basher)
-if is dir "${HOME}/.basher"; then
-    PATH="${PATH}:$HOME/.basher/bin"
-    eval "$(basher init -)"
+if is available hh; then
+    alias hh=hstr                    # hh to be alias for hstr
+    export HSTR_CONFIG=hicolor       # get more colors
+    shopt -s histappend              # append new history items to .bash_history
+    export HISTCONTROL=ignorespace   # leading space hides commands from history
+    export HISTFILESIZE=10000        # increase history file size (default is 500)
+    export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+    # ensure synchronization between Bash memory and history file
+    export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+    # if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
+
 
 # ===== ALIASES ==========================================================
 # Debian comes with neomutt named as mutt, Ubuntu doesn't
