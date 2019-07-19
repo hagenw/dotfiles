@@ -12,15 +12,13 @@ In order to run [OfflineIMAP] as a daemon in the background to sync multiple
 user accounts do:
 
 ```bash
-$ sudo cp /usr/share/doc/offlineimap/examples/systemd/offlineimap@.service /etc/systemd/user/
-$ systemctl –user start offlineimap@account1.service
-$ systemctl –user start offlineimap@account2.service
+$ systemctl --user start offlineimap@account1.service
+$ systemctl --user start offlineimap@account2.service
 ```
 
 If you plan to sync only one account, you could also use:
 
 ```bash
-$ sudo cp /usr/share/doc/offlineimap/examples/systemd/offlineimap.service /etc/systemd/user/
 $ systemctl --user start offlineimap.service
 ```
 
@@ -37,7 +35,7 @@ daemon and the corresponding [offlineimap@.service] file.
 
 ## Discussion
 
-[OfflineIMAP] is no longer actively developed, but has still good maintainance
+[OfflineIMAP] is no longer actively developed, but has still good maintenance
 support as of mid 2019.
 [Other people] use [mbsync] instead, which seems to have similar problems of
 getting only a few bug fix commits and releases (in 2019 there was one in May).
