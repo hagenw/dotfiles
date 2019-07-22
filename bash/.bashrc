@@ -99,6 +99,8 @@ if is available hh; then
     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
+# Handling of Python virtual environments
+include hagenw/simply-bash lib/pyenvs.sh
 
 
 # ===== ALIASES ==========================================================
