@@ -1,2 +1,3 @@
-mutt/.mutt/cache/
 __pycache__
+mutt/.mutt/cache/
+mc/.config/mc/hotlist
