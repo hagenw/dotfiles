@@ -31,9 +31,6 @@ fi
 
 # ===== BASH SETTINGS ====================================================
 #
-# --- pipenv
-export WORKON_HOME=~/.envs
-#
 # --- Autocompletion
 is file '/etc/bash_completion' && source '/etc/bash_completion'
 is file '${HOME}/.bash_completion' && source '${HOME}/.bash_completion'
