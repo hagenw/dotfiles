@@ -47,6 +47,7 @@ hdr_order Date: To: Cc: From: Reply-To: Subject  # order of entries
 set tilde                 # show a tilde at the end of messages
 auto_view text/html       # auto convert text/html MIME type to text/plain
 auto_view text/calendar   # view calendar invitations, see https://github.com/dmedvinsky/mutt-ics
+set mailcap_path="~/.mutt/mailcap"  # define how to open attachments
 
 # === Compose messages ===
 set editor=/usr/bin/vim
