@@ -46,6 +46,8 @@ colorscheme bubblelights
 " to update the highlight. Run :set fo=cawq to wrap only comments.            '
 "-----------------------------------------------------------------------------'
 set textwidth=80
+set formatoptions-=t  " no automatic text wrapping
+set formatoptions+=c  " wrap comments automatically
 au BufRead,BufNewFile *
     \ if exists('w:matchId') |
     \     call matchdelete(333) |
