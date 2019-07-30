@@ -23,15 +23,6 @@ set wildmenu              " show possibilities of tab completion for :
 "set term=xterm-256color   " work around to get correct keys inside tmux
 
 
-"------- USE PATHOGEN TO HANDLE PLUGINS --------------------------------------
-"                                                                             '
-" This handles all the plugins under $HOME/.vim/bundle. If you add a new      '
-" one or remove an existing one, you have to run the following command:       '
-"   call pathogen#helptags()                                                  '
-"-----------------------------------------------------------------------------'
-call pathogen#infect()   " load all plugins
-
-
 "------- COLORSCHEME ---------------------------------------------------------
 "                                                                             '
 " Bubblelights (https://github.com/hagenw/bubblelights)                       '

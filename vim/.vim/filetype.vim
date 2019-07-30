@@ -15,3 +15,8 @@ au FileType gitcommit           set spell
 au BufNewFile,BufRead *.py      set number
 " Enable groovy Syntax for Jenkins files
 au BufNewFile,BufRead Jenkinsfile setf groovy
+" Load vim-tmux plugin for tmux.conf file
+au FileType tmux                packadd vim-tmux
+" Load vim-bash plugin for bash files
+au BufNewFile,BufRead *.sh      packadd vim-bash
+au FileType bash                packadd vim-bash
