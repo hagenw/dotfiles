@@ -1,8 +1,5 @@
 # inputrc config for libreadline
 #
-# Don't forget to load this inputrc in your .bashrc with
-# export INPUTRC="${HOME}/.inputrc"
-
 # Matlab like bash history
 "\e[B": history-search-forward
 "\e[A": history-search-backward
