@@ -348,13 +348,22 @@ let g:Powerline_colortheme = 'default'
 "-----------------------------------------------------------------------------'
 set undofile
 set undodir=$HOME/.cache/vim/undo/
-let g:netrw_home=$HOME.'/.cache/vim'
 set viminfo='100,<100,h,:20,%,n~/.viminfo
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \   exe "normal g'\"" |
     \ endif  " always jump to the last cursor position
  
+
+"------- BUILDIN FILE BROWSER ------------------------------------------------
+"                                                                             '
+" netrw is the default file browser. For a discussion, see                    '
+" https://shapeshed.com/vim-netrw/                                            '
+"-----------------------------------------------------------------------------'
+let g:netrw_home=$HOME.'/.cache/vim'
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
 
 "------- SHOW CURRENT FILE NAME IN TERM TITLE --------------------------------
 "                                                                             '
