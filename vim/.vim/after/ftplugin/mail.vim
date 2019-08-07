@@ -1,6 +1,6 @@
 " Writing mails with mutt
 setlocal spell
-setlocal textwidth=75
+setlocal textwidth=70
 " Allow flowed text (http://bit.ly/2xkpXS3)
 " Add format option 'w' to add trailing white space, indicating that paragraph
 " continues on next line. This is to be used with mutt's 'text_flowed' option.
