@@ -32,8 +32,8 @@ fi
 # ===== BASH SETTINGS ====================================================
 #
 # --- Autocompletion
-is file '/etc/bash_completion' && source '/etc/bash_completion'
-is file '${HOME}/.bash_completion' && source '${HOME}/.bash_completion'
+is file "/etc/bash_completion" && source "/etc/bash_completion"
+is file "${HOME}/.bash_completion" && source "${HOME}/.bash_completion"
 # No tab-complementation on the begining of a line
 shopt -s no_empty_cmd_completion
 # Show no hidden files (.) by tab complementation
