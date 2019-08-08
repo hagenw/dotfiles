@@ -1,5 +1,5 @@
 # git config file
-# 
+#
 # most of settings are from https://github.com/skwp/dotfiles
 [user]
 	name = Hagen Wierstorf
@@ -30,12 +30,11 @@
     nb = checkout -b
     # diff
     d = diff            # diff unstaged changes
-    dc = diff --cached  # diff staged changes
+    ds = diff --cached  # diff staged changes
     last = diff HEAD^   # diff last committed change
     # log
     l = log --pretty=format:\"%C(reset)%C(247)%h %C(188)%s  %C(247)[%an]%C(226)%d%C(reset)\"
     changes = log --pretty=format:\"%C(reset)%C(247)%h %C(228)%s %C(247)[%an]%C(reset)\" --name-status
-    changelog = log --pretty=format:\" * %s\"
     filelog = log -u    # show changes to a file
     # remote
     r = remote -v       # show remotes (verbose)
@@ -52,7 +51,6 @@
     add-conflict = "!f() { git diff --name-only --diff-filter=U ; }; git add $(f)"
 
 [format]
-    #pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
     pretty = format:%C(reset)%C(247)%>(14,trunc)%ar %C(247)%h %C(188)%s  %C(247)[%an]%C(226)%d%C(reset)
 [branch]
     autosetupmerge = true
@@ -96,6 +94,3 @@
     header = white bold
     help = white bold
     error = white bold
-[filter "clean_ipynb"]
-    #clean = nb_drop_output.py
-    #smudge = cat
