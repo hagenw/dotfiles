@@ -1,0 +1,8 @@
+#!/bin/bash
+# Synchronise contacts from posteo.de
+vdirsyncer sync
+# This saves the CardDAV addresses into a file and changes the name columen ($1)
+# from "Lastname, Firstname" into "Firstname Lastname"
+destination="${HOME}/.cache/address_index_from_vcards"
+echo "Writing ${destination}"
+khard --skip-unparsable email | awk -F'\t' -vOFS='\t' 'NR > 1 {gsub(/  +/, "\t"); split($1,a,", "); print $3,a[2]" "a[1],$2}' > "${destination}"
