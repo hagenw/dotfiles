@@ -30,9 +30,8 @@ set folder_format="%2C %4N  %f"   # Format of the folder view (press y)
 set timeout = 30                  # Time until mutt refresheses without keyboard actions
 unset mark_old                    # Dont't use O for marking messages as old
 set to_chars="  TCFLR"            # https://neomutt.org/guide/reference.html#to-chars
-set index_format="%4C %S%T%?X?A& ? %{%b %d} %-15.15L (%?l?%4l&%4c?) %?M?\<%M\\> ?%s" # The '%?M?<%M> ?' part displays number of messages for collapsed threads;
-                                                                                     # \< and \\> is a workaround for neomutt, see https://git.io/vPiml for the;
-                                                                                     # %?X?A& ? displays A if attachment is present
+set index_format="%4C %S%T%?X?A& ? %{%b %d} %-15.15L (%?l?%4l&%4c?) %?M?<%M> ?%s" # '%?M?<%M> ?' displays number of messages for collapsed threads;
+                                                                                  # %?X?A& ? displays A if attachment is present
 
 # === Coloring ===
 source ~/.mutt/colors/bubblelights.mutt
