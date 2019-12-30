@@ -12,3 +12,4 @@ vo=vdpau
 #vo=x11
 #hwdec=vdpau
 #hwdec-codecs=all
+audio-channels=stereo
