@@ -13,3 +13,10 @@ vo=vdpau
 #hwdec=vdpau
 #hwdec-codecs=all
 audio-channels=stereo
+
+[1080p]
+ovc = libx264
+ovcopts-add = profile=high,preset=slow,level=4.1,crf=21
+oac = aac
+oacopts-add = b=320k
+ofps = 24000/1001
