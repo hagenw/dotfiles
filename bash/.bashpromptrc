@@ -9,11 +9,11 @@ VIRTUAL_ENV_DISABLE_PROMPT=1 # disable builtin python env display
 # conda config --set changeps1  false
 
 declare -r YELLOW="\001\e[00;34m\002"
-declare -r BLUE="\001\e[01;34m\002"
-declare -r ORANGE="\001\e[01;31m\002"
+declare -r BLUE="\001\e[01;94m\002"
+declare -r ORANGE="\001\e[01;91m\002"
 declare -r CYAN="\001\e[00;36m\002"
 declare -r GRAY="\001\e[00;90m\002"
-declare -r NORMAL="\001\e[01;37m\002"
+declare -r NORMAL="\001\e[01;97m\002"
 
 PS1="\\n\$(_prompt_date  \"${YELLOW}\" \"${BLUE}\")"
 PS1+="\$(_prompt_dir    \"${YELLOW}\" \"${ORANGE}\")"
