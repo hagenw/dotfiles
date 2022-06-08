@@ -13,20 +13,20 @@ export EDITOR=vim
 # --- Global definitions (no longer used on Debian systems)
 [[ -f '/etc/bashrc' ]] && source '/etc/bashrc'
 #
-# -- Package manager basher (https://github.com/basherpm/basher)
-if [[ -d "${HOME}/.basher" ]]; then
-    PATH="${PATH}:$HOME/.basher/bin"
-    eval "$(basher init -)"
-else
-    echo "WARNING: basher missing, loaded minimal .bashrc"
-    return
-fi
+# # -- Package manager basher (https://github.com/basherpm/basher)
+# if [[ -d "${HOME}/.basher" ]]; then
+#     PATH="${PATH}:$HOME/.basher/bin"
+#     eval "$(basher init -)"
+# else
+#     echo "WARNING: basher missing, loaded minimal .bashrc"
+#     return
+# fi
 #
 # --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
-if ! hash is 2>/dev/null; then
-    echo "WARNING: hagenw/simply-bash not installed, loaded minimal .bashrc"
-    return
-fi
+source ${HOME}/git/simply-bash/simply-bash.sh
+# --- Load pyenvs.sh (https://github.com/audeering/pyenvs.sh)
+source ${HOME}/git/audeering/pyenvs.sh/pyenvs.sh
+export PYENVS_PYTHON_VERSION="3.8"
 
 
 # ===== BASH SETTINGS ====================================================
@@ -96,8 +96,6 @@ if is available hh; then
     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
-# Handling of Python virtual environments
-include hagenw/simply-bash lib/pyenvs.sh
 
 
 # ===== ALIASES ==========================================================
