@@ -13,17 +13,21 @@ export EDITOR=vim
 [[ -f '/etc/bashrc' ]] && source '/etc/bashrc'
 #
 # --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
-source ${HOME}/git/simply-bash/simply-bash.sh
+if [[ -f "${HOME}/git/simply-bash/simply-bash.sh" ]]; then
+    source "${HOME}/git/simply-bash/simply-bash.sh"
+fi
 # --- Load pyenvs.sh (https://github.com/audeering/pyenvs.sh)
-source ${HOME}/git/audeering/pyenvs.sh/pyenvs.sh
-export PYENVS_PYTHON_VERSION="3.8"
+if [[ -f "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh" ]]; then
+    source "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh"
+    export PYENVS_PYTHON_VERSION="3.8"
+fi
 
 
 # ===== BASH SETTINGS ====================================================
 #
 # --- Autocompletion
-is file "/etc/bash_completion" && source "/etc/bash_completion"
-is file "${HOME}/.bash_completion" && source "${HOME}/.bash_completion"
+[[ -f "/etc/bash_completion" ]] && source "/etc/bash_completion"
+[[ -f "${HOME}/.bash_completion" ]] && source "${HOME}/.bash_completion"
 # No tab-complementation on the begining of a line
 shopt -s no_empty_cmd_completion
 # Show no hidden files (.) by tab complementation
@@ -36,20 +40,16 @@ shopt -s dirspell
 # --- Colors
 # Allow vim to recognize 256 colors over any combination of ssh and tmux
 # (https://github.com/jalvesaq/southernlights#bash-configuration)
-if is substring "xterm" "${TERM}"; then
-    export TERM=xterm-256color
-fi
-if is substring "256color" "${TERM}"; then
-    export HAS_256_COLORS=true
-fi
-if is matching "screen" "${TERM}" && is true "${HAS_256_COLORS}"; then
+[[ "${TERM}" == *"xterm"* ]] && export TERM=xterm-256color
+[[ "${TERM}" == *"256color"* ]] && export HAS_256_COLORS=true
+if [[ "${TERM}" == "screen" ]] && [[ "${HAS_256_COLORS}" ]]; then
     export TERM=screen-256color
 fi
 # Mimetype colors
-is file "${HOME}/.dircolors" && eval "$(dircolors -b ${HOME}/.dircolors)"
+[[ -f "${HOME}/.dircolors" ]] && eval "$(dircolors -b ${HOME}/.dircolors)"
 #
 # --- Prompt
-if is substring "256color" "${TERM}" && is file "${HOME}/.bashpromptrc"; then
+if [[ ${TERM} == *"256color"* ]] && [[ -f "${HOME}/.bashpromptrc" ]]; then
     source "${HOME}/.bashpromptrc"
 fi
 #
@@ -60,7 +60,7 @@ export INPUTRC="${HOME}/.inputrc"
 export HISTCONTROL=ignoreboth
 #
 # --- Title
-if is equal "${USER}" "root"; then
+if [[ "${USER}" == "root" ]]; then
     PROMPT_COMMAND='echo -ne "\033]0;${USER}: ${PWD/$HOME/~}\007"'
 else
     PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
@@ -68,11 +68,11 @@ fi
 #
 # --- Less
 # Make less more friendly for non-text input files, see lesspipe(1)
-is executable '/usr/bin/lesspipe' && eval "$(lesspipe)"
+[[ -x '/usr/bin/lesspipe' ]] && eval "$(lesspipe)"
 #
 # --- Plugins
 # Bash History Suggest Box (https://github.com/dvorka/hstr)
-if is available hh; then
+if [[ $(which hh) ]]; then
     alias hh=hstr                    # hh to be alias for hstr
     export HSTR_CONFIG=hicolor       # get more colors
     shopt -s histappend              # append new history items to .bash_history
@@ -89,10 +89,8 @@ fi
 
 
 # ===== EXTERNAL PROGRAMS ================================================
-# Start tmux in new terminal
-if is empty "${TMUX}"; then
-    tmux
-fi
+# Start tmux in new terminal if not running
+[[ -z "${TMUX}" ]] && tmux
 
 # Export Gitlab API key if stored in password manager
 pass gitlab >&/dev/null && export GITLAB_API_TOKEN=$(pass gitlab)
@@ -105,7 +103,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # ===== ALIASES ==========================================================
 # Debian comes with neomutt named as mutt, Ubuntu doesn't
-if is available neomutt and is not available mutt; then
+if [[ $(which neomutt) ]] && [[ ! $(which mutt) ]]; then
     alias mutt='neomutt'
 fi
 alias mc='mc -d'  # disable mouse
