@@ -12,15 +12,6 @@ export EDITOR=vim
 # --- Global definitions (no longer used on Debian systems)
 [[ -f '/etc/bashrc' ]] && source '/etc/bashrc'
 #
-# # -- Package manager basher (https://github.com/basherpm/basher)
-# if [[ -d "${HOME}/.basher" ]]; then
-#     PATH="${PATH}:$HOME/.basher/bin"
-#     eval "$(basher init -)"
-# else
-#     echo "WARNING: basher missing, loaded minimal .bashrc"
-#     return
-# fi
-#
 # --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
 source ${HOME}/git/simply-bash/simply-bash.sh
 # --- Load pyenvs.sh (https://github.com/audeering/pyenvs.sh)
