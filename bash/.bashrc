@@ -1,6 +1,5 @@
 # .bashrc
 
-
 PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin"
 export EDITOR=vim
 
@@ -98,6 +97,21 @@ if is available hh; then
 fi
 
 
+# ===== EXTERNAL PROGRAMS ================================================
+# Start tmux in new terminal
+if is empty "${TMUX}"; then
+    tmux
+fi
+
+# Export Gitlab API key if stored in password manager
+pass gitlab >&/dev/null && export GITLAB_API_TOKEN=$(pass gitlab)
+
+# Load Node Version Manager if installed
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
 # ===== ALIASES ==========================================================
 # Debian comes with neomutt named as mutt, Ubuntu doesn't
 if is available neomutt and is not available mutt; then
@@ -136,8 +150,3 @@ alias la='ls -A'
 alias df='df -h'
 # Ignore .svn directories with grep
 alias grep='grep --exclude-dir=".svn"'
-
-# Start tmux in new terminal
-if is empty "${TMUX}"; then
-    tmux
-fi
