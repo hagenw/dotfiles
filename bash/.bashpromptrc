@@ -89,7 +89,7 @@ _prompt_ps2() {
 # hostname: for non-local machines
 _host() {
     # Display no hostname on local machines or inside tmux
-    if is empty "$(who am i)" || is not empty "${TMUX}"; then
+    if [[ -z "$(who am i)" ]] || ! [[ -z "${TMUX}" ]]; then
         echo -e ""
     else
         echo -e "$(hostname):"
