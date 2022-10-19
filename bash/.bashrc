@@ -90,7 +90,7 @@ fi
 
 # ===== EXTERNAL PROGRAMS ================================================
 # Start tmux in new terminal if not running
-[[ -z "${TMUX}" ]] && tmux
+tmux attach || tmux
 
 # Export Gitlab API key if stored in password manager
 pass gitlab >&/dev/null && export GITLAB_API_TOKEN=$(pass gitlab)
