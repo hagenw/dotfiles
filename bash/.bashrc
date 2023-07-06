@@ -141,3 +141,5 @@ alias la='ls -A'
 alias df='df -h'
 # Ignore .svn directories with grep
 alias grep='grep --exclude-dir=".svn"'
+# Open sphinx docs in brwosers
+alias docs='vivaldi build/html/index.html &>/dev/null'
