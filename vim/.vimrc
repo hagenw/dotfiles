@@ -48,7 +48,7 @@ au BufRead,BufNewFile *
 
 "------- KEYBOARD SHORTCUTS --------------------------------------------------
 "                                                                             '
-"     ,         ,,        ,k        ,n        ,c        ,e                    '
+"     ,         ,,        ,k        ,l        ,c        ,e                    '
 "     <C-y>     <C-p>     <C-r>     ,r        ,q                              '
 "     <C-n>     <C-b>                                                         '
 "     <A-Up>    <A-Down>  <A-Left>  <A-Right> +         -         _           '
@@ -106,7 +106,7 @@ set wmh=0
 "
 "----- Line numbers
 " Toggle displaying line number
-nnoremap <silent> <leader>n :set invnumber<CR>
+nnoremap <silent> <leader>l :set invnumber<CR>
 
 
 "------- SPELLCHECKING -------------------------------------------------------
