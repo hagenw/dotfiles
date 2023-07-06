@@ -225,8 +225,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 "     <F8>                                                                    '
 "                                                                             '
 " Flake8 for Python (https://github.com/nvie/vim-flake8)                      '
+"                                                                             '
+" DEPRECATED                                                                  '
 "-----------------------------------------------------------------------------'
-autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+" autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 let g:flake8_show_in_file=0
 let g:flake8_show_in_gutter=0
 let g:flake8_quickfix_height=10
@@ -235,6 +237,53 @@ highlight link Flake8_Warning    Search
 highlight link Flake8_Complexity Search
 highlight link Flake8_Naming     Search
 highlight link Flake8_PyFlake    Search
+
+
+"------- LINTER --------------------------------------------------------------
+"                                                                             '
+"     <F8>    ,<F8>                                                           '
+"                                                                             '
+" ale (https://github.com/dense-analysis/ale)                                 '
+"-----------------------------------------------------------------------------'
+" Run ruff for <F8>
+autocmd FileType python map <buffer> <F8> :ALELint<CR>
+" Fix with ruff for ,<F8>
+autocmd FileType python map <buffer> <leader><F8> :ALEFix<CR>
+
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+
+" Use it only for Python files to run ruff
+let g:ale_linters = {
+    \ 'python': ['ruff'],
+    \ }
+let g:ale_fixers = {
+    \ 'python': ['ruff'],
+    \ }
+
+" Ensure ale is not run automatically
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_filetype_changed = 0
+
+" Use quickfix window instead of location list
+let g:ale_set_quickfix = 1
+" Open quickfix/location window automatically
+let g:ale_open_list = 1
+
+highlight link ALEError IncSearch
+highlight link ALEWarning Search
+highlight link ALEInfo Search
+highlight link ALEStyleError IncSearch
+highlight link ALEStyleWarning Search
+
+highlight link ALEErrorSign IncSearch
+highlight link ALEWarningSign Search
+highlight link ALEInfoSign Search
+highlight link ALEStyleErrorSign IncSearch
+highlight link ALEStyleWarningSign Search
 
 
 "------- INSERT SPECIAL CHARACTERS -------------------------------------------
