@@ -227,6 +227,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " Flake8 for Python (https://github.com/nvie/vim-flake8)                      '
 "                                                                             '
 " DEPRECATED                                                                  '
+"                                                                             '
 "-----------------------------------------------------------------------------'
 " autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 let g:flake8_show_in_file=0
@@ -273,17 +274,15 @@ let g:ale_set_quickfix = 1
 " Open quickfix/location window automatically
 let g:ale_open_list = 1
 
-highlight link ALEError IncSearch
+" Goto next error
+map <leader>n :ALENextWrap<CR>
+
+" Highlight related char in code with search color
+highlight link ALEError Search
 highlight link ALEWarning Search
 highlight link ALEInfo Search
 highlight link ALEStyleError IncSearch
 highlight link ALEStyleWarning Search
-
-highlight link ALEErrorSign IncSearch
-highlight link ALEWarningSign Search
-highlight link ALEInfoSign Search
-highlight link ALEStyleErrorSign IncSearch
-highlight link ALEStyleWarningSign Search
 
 
 "------- INSERT SPECIAL CHARACTERS -------------------------------------------
