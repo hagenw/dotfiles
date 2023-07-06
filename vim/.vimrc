@@ -1,8 +1,10 @@
-" Vim configuration
-"
-" Maintainer:  hagenw (hagenw@posteo.de)
-" Version:     1.0
-" License:     MIT
+"------- Vim configuration ---------------------------------------------------
+"                                                                             '
+" Maintainer:  hagenw (hagenw@posteo.de)                                      '
+" Version:     1.0                                                            '
+" License:     MIT                                                            '
+"                                                                             '
+"-----------------------------------------------------------------------------
 
 
 "------- COMMON SETTINGS -----------------------------------------------------
@@ -244,7 +246,8 @@ highlight link Flake8_PyFlake    Search
 "                                                                             '
 "     <F8>    ,<F8>                                                           '
 "                                                                             '
-" ale (https://github.com/dense-analysis/ale)                                 '
+" Configure ale (https://github.com/dense-analysis/ale)                       '
+" to use ruff (https://github.com/astral-sh/ruff) for Python linting          '
 "-----------------------------------------------------------------------------'
 " Run ruff for <F8>
 autocmd FileType python map <buffer> <F8> :ALELint<CR>
