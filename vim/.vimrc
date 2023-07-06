@@ -77,12 +77,12 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Toggle between open files by CRTL-n and CRTL-b
 nmap <silent> <C-n> :bnext<CR>
 nmap <silent> <C-b> :bprev<CR>
+" Close current tab/buffer
+map <leader>q :bdel<CR>
 " Switch to last file in buffer
 nnoremap <leader><leader> <C-^>
 " Close Quickfix window
 map <leader>c :ccl<CR>
-" Goto next error from Quickfix window
-map <leader>q :cnext<CR>
 " Execute open file
 nnoremap <leader>e :w<CR>:!./%<CR>
 "
