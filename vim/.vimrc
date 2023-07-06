@@ -1,7 +1,7 @@
 " Vim configuration
 "
 " Maintainer:  hagenw (hagenw@posteo.de)
-" Version:     0.5
+" Version:     1.0
 " License:     MIT
 
 
@@ -20,7 +20,6 @@ set autoindent            " autoindent
 set autowrite             " store changes automatically
 set autoread              " update file automatically on change
 set wildmenu              " show possibilities of tab completion for :
-"set term=xterm-256color   " work around to get correct keys inside tmux
 
 
 "------- COLORSCHEME ---------------------------------------------------------
@@ -50,7 +49,6 @@ au BufRead,BufNewFile *
 "------- KEYBOARD SHORTCUTS --------------------------------------------------
 "                                                                             '
 "     ,         ,,        ,k        ,n        ,c        ,e                    '
-"     <C-F10>   <C-F11>                                                       '
 "     <C-y>     <C-p>     <C-r>     ,r        ,q                              '
 "     <C-n>     <C-b>                                                         '
 "     <A-Up>    <A-Down>  <A-Left>  <A-Right> +         -         _           '
@@ -65,10 +63,6 @@ let mapleader = ","
 nnoremap <leader>k :map ,<CR>
 "
 "----- Copy/Paste
-" Switch between paste mode using F10 and F11
-" (no autoindention by pasting with the middle mouse button)
-nmap <silent> <C-F10> :set paste<CR>
-nmap <silent> <C-F11> :set nopaste<CR>
 " Copy into system clipboard (http://bit.ly/2hgxFrp)
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
@@ -113,19 +107,6 @@ set wmh=0
 "----- Line numbers
 " Toggle displaying line number
 nnoremap <silent> <leader>n :set invnumber<CR>
-
-
-"------- ABBREVIATIONS -------------------------------------------------------
-"                                                                             '
-"    cl    cl1    cl2    cl3                                                  '
-"                                                                             '
-" Type `abbrevation´ and hit `Enter´ afterwards and it will be replaced by    '
-" the defined content.                                                        '
-"-----------------------------------------------------------------------------'
-iabbrev cl %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-iabbrev cl1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-iabbrev cl2 %--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%--%-
-iabbrev cl3 %----%----%----%----%----%----%----%----%----%----%----%----%----%----%----%----
 
 
 "------- SPELLCHECKING -------------------------------------------------------
@@ -235,6 +216,8 @@ nnoremap <leader>a :Ack!<space>
 map <leader>f :w<CR>:CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.log,*.bst,*.pdf,*.toc,*.out
+" Ignore files from .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
 "------- SYNTAX CHECKING -----------------------------------------------------
