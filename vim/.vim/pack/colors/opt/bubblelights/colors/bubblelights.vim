@@ -104,7 +104,7 @@ hi Underlined               ctermfg=81      ctermbg=NONE    cterm=UNDERLINE guif
 
 hi Ignore                   ctermfg=fg      ctermbg=NONE    cterm=NONE      guifg=fg        guibg=NONE      gui=NONE
 
-hi Error                    ctermfg=fg      ctermbg=131     cterm=NONE      guifg=NONE      guibg=#af5f5f   gui=NONE
+hi Error                    ctermfg=fg      ctermbg=131     cterm=BOLD      guifg=NONE      guibg=#af5f5f   gui=NONE
 
 hi Todo                     ctermfg=238     ctermbg=147     cterm=BOLD      guifg=#444444   guibg=#afafff   gui=BOLD
 
