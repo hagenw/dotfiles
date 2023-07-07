@@ -244,7 +244,7 @@ highlight link Flake8_PyFlake    Search
 
 "------- LINTER --------------------------------------------------------------
 "                                                                             '
-"     <F8>    ,<F8>                                                           '
+"     <F8>    ,<F8>    ,n                                                     '
 "                                                                             '
 " Configure ale (https://github.com/dense-analysis/ale)                       '
 " to use ruff (https://github.com/astral-sh/ruff) for Python linting          '
