@@ -30,11 +30,12 @@ macro index         $           "<shell-escape>~/.mutt/sync_imap.sh<enter>" "run
 macro index         R           "T~N<enter>;WO\CT~T<enter>"                 "mark all messages as read"             # see http://blog.jwcxz.com/?p=810
 macro index,pager   A           "<pipe-message>khard add-email<enter>"      "add the sender email address to khard"
 macro index,pager   S           "<pipe-message>ripmime -i - -d ~/Downloads && rm ~/Downloads/textfile*<enter>" "Save all non-text attachments using ripmime"
-macro index,pager   H           "<pipe-message>htmail-decode<enter>"        "render html mail using htmail-view"    # see https://github.com/liske/htmail-view
-                                                                                                                    # requires libmime-tools-perl
+#macro index,pager   H           "<pipe-message>htmail-decode<enter>"        "render html mail using htmail-view"    # see https://github.com/liske/htmail-view
+#                                                                                                                    # requires libmime-tools-perl
+#
 # urlscan
-macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager \cu "<pipe-message> urlscan -d -s -w 80<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cu "<pipe-entry> urlscan -c -d<Enter>" "call urlscan to extract URLs out of a message"
 
 # === Key bindings (search) ===
 # 'L' performs a notmuch query, showing only the results
