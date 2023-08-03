@@ -1,4 +1,4 @@
-text/html; /usr/bin/opera --new-tab file://%s; test=test -n "$DISPLAY"; nametemplate=%s.html; needsterminal;
+text/html; /usr/bin/vivaldi --new-tab file://%s; test=test -n "$DISPLAY"; nametemplate=%s.html; needsterminal;
 text/html; /usr/bin/lynx -dump -force_html %s; copiousoutput; description=HTML Text; nametemplate=%s.html
 #text/calendar; ~/.local/bin/khal import %s
 text/calendar; mutt-ics; copiousoutput
