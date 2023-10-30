@@ -19,7 +19,11 @@ fi
 # --- Load pyenvs.sh (https://github.com/audeering/pyenvs.sh)
 if [[ -f "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh" ]]; then
     source "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh"
-    export PYENVS_PYTHON_VERSION="3.8"
+    export PYENVS_PYTHON_VERSION="3.10"
+fi
+# --- Load pdftools (https://github.com/hagenw/pdf-tools)
+if [[ -d "${HOME}/git/pdf-tools/bin" ]]; then
+    PATH="${PATH}:${HOME}/git/pdf-tools/bin"
 fi
 
 
