@@ -3,6 +3,9 @@
 PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin"
 export EDITOR=vim
 
+# Avoid using system tmp folder
+export TMPDIR=$HOME/tmp
+
 
 # ===== BASH SETTINGS ====================================================
 #
