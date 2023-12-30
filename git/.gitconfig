@@ -31,7 +31,6 @@
     # diff
     d = diff            # diff unstaged changes
     ds = diff --cached  # diff staged changes
-    last = diff HEAD^   # diff last committed change
     # log
     l = log --pretty=format:\"%C(reset)%C(247)%h %C(188)%s  %C(247)[%an]%C(226)%d%C(reset)\"
     changes = log --pretty=format:\"%C(reset)%C(247)%h %C(228)%s %C(247)[%an]%C(reset)\" --name-status
