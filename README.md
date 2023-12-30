@@ -9,10 +9,11 @@ Clone the repository to `~/.dotfiles`
 
 ```bash
 $ git clone git@github.com:hagenw/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles
 ```
 
-If you store the repository at a place outside of your home directory you will
-have to use the `-t ~` option with [stow].
+If you store the repository at a place outside of your home directory
+you will have to use the `-t ~` option with [stow].
 
 [stow]: https://www.gnu.org/software/stow/
 
@@ -25,9 +26,11 @@ To create symlinks to the configuration files in this repository run
 $ stow vim
 ```
 
-This assumes that you placed this repo somewhere in your home folder, e.g.
-`~/.dotfiles` as [stow] will create the symlinks one dir above. If you have the
-repo at some place you can [stow] tell where to create the symlink with
+This assumes that you placed this repo somewhere in your home folder,
+e.g. `~/.dotfiles`
+as [stow] will create the symlinks one dir above.
+If you have the repo at some place,
+you can [stow] tell where to create the symlink with
 
 ```bash
 $ stow -t ~ vim
