@@ -4,13 +4,16 @@
 
 ## `.bashpromptrc`
 
-Defines a bashprompt in the form of
+Configures the bash prompt
+to show the current folder
+and git branch in the first line,
+and the actual prompt in a second line.
 
 ![bashprompt](./bashprompt.png)
 
-It requires the terminal colors defined at
-https://github.com/hagenw/bubblelights
-to look like in the screenshot.
+The colors are optimized
+for terminal colors as defined in
+https://github.com/hagenw/bubblelights.
 
 ## `.bashrc`
 
@@ -26,5 +29,7 @@ e.g. when listed by `ls`.
 
 ## `.inputrc`
 
-Let the :arrow_up: and :arrow_down: keys
-search in the bash history.
+Use <kbd>↑</kbd> and <kbd>↓</kbd> keys
+to navigate the bash history.
+You can start typing a command,
+and then use the keys.
