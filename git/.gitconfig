@@ -40,7 +40,7 @@
     theirs = reset --hard           # E.g. replace your branch by the remote:
                                     # git reset --hard origin/feature-branch
     # edit all conflicting files in VIM
-    edit-conflict = "!f() { git diff --name-only --diff-filter=U ; }; vim +/'<<<<<<<' $(f)"
+    edit-conflict = "!f() { git diff --name-only --diff-filter=U ; }; ${EDITOR} +/'<<<<<<<' $(f)"
     add-conflict = "!f() { git diff --name-only --diff-filter=U ; }; git add $(f)"
 
 [format]
