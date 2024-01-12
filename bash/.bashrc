@@ -114,36 +114,18 @@ if [[ $(which neomutt) ]] && [[ ! $(which mutt) ]]; then
 fi
 alias mc='mc -d'  # disable mouse
 alias version='lsb_release -a'  # version of linux distribution
-alias t='todo-txt'
-# vim aliases
-alias vimtex='vim *.tex'
-alias vimbib='vim *.bib'
-alias vimm='vim *.m'
-alias vimplt='vim *.plt'
-alias v='fzy-vim.sh'
-# Start Matlab without GUI
-alias matlab='matlab -nodesktop -nosplash'
-# Start Octave without gui
-alias octave='octave --no-gui'
 # Showing hardware and driver infos
 alias systeminfo='inxi -v5'
 # Allow mistyping of git
 alias gti='git'
 # Image scaling (https://github.com/jarun/imgp)
 alias scale='imgp -x 1200x1200 -w'
-# nnn file manager (https://github.com/jarun/nnn)
-alias n='nnn'
-# fpp (https://github.com/facebook/PathPicker)
-alias pp='fpp --no-file-checks'
 # ls
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -l --group-directories-first'
 alias lh='ls -lh'
 alias la='ls -A'
-#alias l='ls -CF'  # used by bashmarks
 # Show size in human readable format
 alias df='df -h'
-# Ignore .svn directories with grep
-alias grep='grep --exclude-dir=".svn"'
 # Open sphinx docs in brwosers
 alias docs='vivaldi build/html/index.html &>/dev/null'
