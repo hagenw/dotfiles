@@ -9,7 +9,7 @@ to show the current folder
 and git branch in the first line,
 and the actual prompt in a second line.
 
-![bashprompt](./bashprompt.png)
+![bashprompt](./images/bashprompt.png)
 
 The colors are optimized
 for terminal colors as defined in

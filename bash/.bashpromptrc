@@ -68,13 +68,13 @@ _prompt_git() {
     fi
 }
 
-# ~>
+# $
 # $1 - color of prompt
 # $2 - color after prompt (normal color)
 _prompt_ps1() {
     local color_prompt="$1"
     local color_normal="$2"
-    echo -e "${color_prompt}~> ${color_normal}"
+    echo -e "${color_prompt}$ ${color_normal}"
 }
 
 #  >
