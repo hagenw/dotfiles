@@ -12,15 +12,17 @@ export EDITOR=vim
 # --- Global definitions (no longer used on Debian systems)
 [[ -f '/etc/bashrc' ]] && source '/etc/bashrc'
 #
-# --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
-if [[ -f "${HOME}/git/simply-bash/simply-bash.sh" ]]; then
-    source "${HOME}/git/simply-bash/simply-bash.sh"
-fi
 # --- Load pyenvs.sh (https://github.com/audeering/pyenvs.sh)
 if [[ -f "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh" ]]; then
     source "${HOME}/git/audeering/pyenvs.sh/pyenvs.sh"
     export PYENVS_PYTHON_VERSION="3.10"
 fi
+#
+# --- Load simply-bash scripts (https://github.com/hagenw/simply-bash)
+if [[ -f "${HOME}/git/simply-bash/simply-bash.sh" ]]; then
+    source "${HOME}/git/simply-bash/simply-bash.sh"
+fi
+#
 # --- Load pdftools (https://github.com/hagenw/pdf-tools)
 if [[ -d "${HOME}/git/pdf-tools/bin" ]]; then
     PATH="${PATH}:${HOME}/git/pdf-tools/bin"
@@ -116,16 +118,12 @@ alias mc='mc -d'  # disable mouse
 alias version='lsb_release -a'  # version of linux distribution
 # Showing hardware and driver infos
 alias systeminfo='inxi -v5'
-# Allow mistyping of git
-alias gti='git'
 # Image scaling (https://github.com/jarun/imgp)
 alias scale='imgp -x 1200x1200 -w'
 # ls
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -l --group-directories-first'
-alias lh='ls -lh'
-alias la='ls -A'
 # Show size in human readable format
 alias df='df -h'
+alias du='du -h'
 # Open sphinx docs in brwosers
 alias docs='vivaldi build/html/index.html &>/dev/null'
