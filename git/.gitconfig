@@ -30,19 +30,13 @@
     nb = checkout -b
     # diff
     d = diff            # diff unstaged changes
-    ds = diff --cached  # diff staged changes
     # log
     l = log --pretty=format:\"%C(reset)%C(247)%h %C(188)%s  %C(247)[%an]%C(226)%d%C(reset)\"
     changes = log --pretty=format:\"%C(reset)%C(247)%h %C(228)%s %C(247)[%an]%C(reset)\" --name-status
-    filelog = log -u    # show changes to a file
-    # remote
-    r = remote -v       # show remotes (verbose)
     # remove
     delete = "!f() { git ls-files --deleted ; }; git rm $(f)"
     # reset
     unstage = reset HEAD            # remove files from index (tracking)
-    uncommit = reset --soft HEAD^   # go back before last commit, with files in
-                                    # uncommited  state
     theirs = reset --hard           # E.g. replace your branch by the remote:
                                     # git reset --hard origin/feature-branch
     # edit all conflicting files in VIM
