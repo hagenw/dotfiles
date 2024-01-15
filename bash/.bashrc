@@ -118,8 +118,6 @@ alias mc='mc -d'  # disable mouse
 alias version='lsb_release -a'  # version of linux distribution
 # Showing hardware and driver infos
 alias systeminfo='inxi -v5'
-# Image scaling (https://github.com/jarun/imgp)
-alias scale='imgp -x 1200x1200 -w'
 # ls
 alias ls='ls --color=auto --group-directories-first'
 # Show size in human readable format
