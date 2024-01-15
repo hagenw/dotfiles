@@ -68,8 +68,6 @@ nnoremap <leader>k :map ,<CR>
 " Copy into system clipboard (http://bit.ly/2hgxFrp)
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
 "
 "----- Replace highlighted word
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>
@@ -177,24 +175,12 @@ command RemoveTabs               %retab
 
 "------- TABLINE -------------------------------------------------------------
 "                                                                             '
-"     ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,0                '
-"                                                                             '
 " Buffer line at top of the screen (https://github.com/ap/vim-buftabline).    '
 " It can be styled by setting the highlight entries BufTabLineCurrent,        '
 " BufTabLineActive, BufTabLineHidden, BufTabLineFill.                         '
 "-----------------------------------------------------------------------------'
 let g:buftabline_show = 1     " Show only when more than 1 file is open
-let g:buftabline_numbers = 0  " Show numbers on tabs
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+let g:buftabline_numbers = 0  " Don't show numbers on tabs
 
 
 "------- GREP ----------------------------------------------------------------
@@ -310,8 +296,6 @@ let g:rcsv_colorpairs = [
 
 "------- TEMPLATES AND AUTOCOMMANDS FOR NEW FILES ----------------------------
 "                                                                             '
-"     <F5>                                                                    '
-"                                                                             '
 " Things to do when opening a new file.                                       '
 "-----------------------------------------------------------------------------'
 filetype plugin on
@@ -321,8 +305,6 @@ filetype indent on
 " file for an example.
 autocmd BufNewFile *
     \ %s#\[:VIM_EVAL:\]\(.\{-\}\)\[:END_EVAL:\]#\=eval(submatch(1))#ge
-" Markdown renderer (https://github.com/ianks/octodown)
-autocmd BufEnter   *.md  exe 'noremap <F5> :!octodown %:p<CR>'
 " Markdown syntax (https://github.com/vim-pandoc/vim-pandoc-syntax)
 autocmd BufEnter   *.md  set filetype=markdown.pandoc
 " Suffix specific actions
