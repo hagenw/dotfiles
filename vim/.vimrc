@@ -407,12 +407,3 @@ let &titleold=&term
 "-----------------------------------------------------------------------------'
 command! ShortLines :%s/.\{70,79} /&↵\r/g | 1
 command! LongLines :%s/↵\n// | 1
-
-
-"------- SPLITING AND JOINING OF STATEMENTS ----------------------------------
-"                                                                             '
-" Split/join code blog lines.                                                 '
-" See: https://github.com/AndrewRadev/splitjoin.vim                           '
-"-----------------------------------------------------------------------------'
-let g:splitjoin_trailing_comma = 1
-let g:splitjoin_python_brackets_on_separate_lines = 1
