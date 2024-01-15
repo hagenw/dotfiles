@@ -222,26 +222,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.log,*.bst,*.pdf,*.toc,*.out
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
-"------- SYNTAX CHECKING -----------------------------------------------------
-"                                                                             '
-"     <F8>                                                                    '
-"                                                                             '
-" Flake8 for Python (https://github.com/nvie/vim-flake8)                      '
-"                                                                             '
-" DEPRECATED                                                                  '
-"                                                                             '
-"-----------------------------------------------------------------------------'
-" autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
-let g:flake8_show_in_file=0
-let g:flake8_show_in_gutter=0
-let g:flake8_quickfix_height=10
-highlight link Flake8_Error      IncSearch
-highlight link Flake8_Warning    Search   
-highlight link Flake8_Complexity Search
-highlight link Flake8_Naming     Search
-highlight link Flake8_PyFlake    Search
-
-
 "------- LINTER --------------------------------------------------------------
 "                                                                             '
 "     <F8>    ,<F8>    ,n                                                     '
