@@ -3,6 +3,7 @@
 Configuration files for
 [bash](./bash),
 [git](./git),
+[mc](./mc),
 [tmux](./tmux),
 [vim](./vim).  
 Click on the links
