@@ -1,4 +1,4 @@
-# tmux config files
+# tmux
 
 Meaningful default settings for tmux.
 
