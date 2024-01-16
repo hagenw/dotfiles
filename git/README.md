@@ -2,6 +2,10 @@
 
 Configuration for `git`.
 
+Sets user name and email,
+default editor and diff tool,
+and a few other meaningful default values.
+
 
 ## Command aliases
 
