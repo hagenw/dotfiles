@@ -17,41 +17,41 @@ are available under
 
 ## Keyboard short cuts
 
-| Keyboard short cut            | Description                              |
-| ----------------------------- | ---------------------------------------- |
-| <kbd>,</kdb>                  | leader key                               |
-| <kbd>,</kbd><kbd>k</kbd>      | show all available leader commands       |
-| <kbd>,</kbd><kbd>r</kbd>      | replace highlighted word                 |
-| <kbd>CTRL</kbd>-<kbd>r</kbd>  | replace highlighted word                 |
-| <kbd>,</kbd><kbd>q</kbd>      | close current tab/buffer                 |
-| <kbd>,</kbd><kbd>c</kbd>      | close quick fix window                   |
-| <kbd>,</kbd><kbd>e</kbd>      | execute open file                        |
-| <kbd>,</kbd><kbd>l</kbd>      | toggel line numbers                      |
-| <kbd>,</kbd><kbd>f</kbd>      | quickly open files                       |
-| <kbd>,</kbd><kbd>b</kbd>      | quickly open buffer                      |
-| <kbd>F8</kbd>                 | lint with `ruff`                         |
-| <kbd>,</kbd><kbd>F8</kbd>     | format and fix with `ruff`               |
-| <kbd>,</kbd><kbd>n</kbd>      | move to next quick fix entry             |
-| <kbd>z</kbd><kbd>g</kbd>      | add word to known words for spellchecker |
-| <kbd>z</kbd><kbd>w</kbd>      | mark word as wrong for spellchecker      |
-| <kbd>n</kbd>                  | move to next searched word below         |
-| <kbd>N</kbd>                  | move to next searched word above         |
-| <kbd>\\</kbd>                 | clear word search                        |
-| <kbd>CTRL</kbd>+<kbd>y</kbd>  | copy to clip board                       |
-| <kbd>CTRL</kbd>+<kbd>n</kbd>  | go to next open file/buffer              |
-| <kbd>CTRL</kbd>+<kbd>b</kbd>  | go to previous open file/buffer          |
-| <kbd>,</kbd><kbd>,</kbd>      | switch to last open file in buffer       |
-| <kbd>ALT</kbd>+<kbd>↑</kbd>   | go to split window above                 |
-| <kbd>ALT</kbd>+<kbd>↓</kbd>   | go to split window below                 | 
-| <kbd>ALT</kbd>+<kbd>←</kbd>   | go to split window left                  |
-| <kbd>ALT</kbd>+<kbd>→</kbd>   | go to split window right                 |
-| <kbd>+</kbd>                  | increase window size                     |
-| <kbd>-</kbd>                  | decrease window size                     |
-| <kbd>_</kbd>                  | make window fullscreen                   |
-| <kbd>AltGr</kbd>+<kbd>u</kbd> | ü                                        |
-| <kbd>AltGr</kbd>+<kbd>o</kbd> | ö                                        |
-| <kbd>AltGr</kbd>+<kbd>a</kbd> | ä                                        |
-| <kbd>F5</kbd>                 | color highlighting for an open CSV file  |
+| Keyboard short cut                       | Description                              |
+| ---------------------------------------- | ---------------------------------------- |
+| <kbd>,</kdb>                             | leader key                               |
+| <kbd><kbd>,</kbd> <kbd>k</kbd></kbd>     | show all available leader commands       |
+| <kbd><kbd>,</kbd> <kbd>r</kbd></kbd>     | replace highlighted word                 |
+| <kbd><kbd>CTRL</kbd>-<kbd>r</kbd></kbd>  | replace highlighted word                 |
+| <kbd><kbd>,</kbd> <kbd>q</kbd></kbd>     | close current tab/buffer                 |
+| <kbd><kbd>,</kbd> <kbd>c</kbd></kbd>     | close quick fix window                   |
+| <kbd><kbd>,</kbd> <kbd>e</kbd></kbd>     | execute open file                        |
+| <kbd><kbd>,</kbd> <kbd>l</kbd></kbd>     | toggel line numbers                      |
+| <kbd><kbd>,</kbd> <kbd>f</kbd></kbd>     | quickly open files                       |
+| <kbd><kbd>,</kbd> <kbd>b</kbd></kbd>     | quickly open buffer                      |
+| <kbd>F8</kbd>                            | lint with `ruff`                         |
+| <kbd><kbd>,</kbd> <kbd>F8</kbd></kbd>    | format and fix with `ruff`               |
+| <kbd><kbd>,</kbd> <kbd>n</kbd></kbd>     | move to next quick fix entry             |
+| <kbd><kbd>z</kbd> <kbd>g</kbd></kbd>     | add word to known words for spellchecker |
+| <kbd><kbd>z</kbd> <kbd>w</kbd></kbd>     | mark word as wrong for spellchecker      |
+| <kbd>n</kbd>                             | move to next searched word below         |
+| <kbd>N</kbd>                             | move to next searched word above         |
+| <kbd>\\</kbd>                            | clear word search                        |
+| <kbd><kbd>CTRL</kbd>+<kbd>y</kbd></kbd>  | copy to clip board                       |
+| <kbd><kbd>CTRL</kbd>+<kbd>n</kbd></kbd>  | go to next open file/buffer              |
+| <kbd><kbd>CTRL</kbd>+<kbd>b</kbd></kbd>  | go to previous open file/buffer          |
+| <kbd><kbd>,</kbd> <kbd>,</kbd></kbd>     | switch to last open file in buffer       |
+| <kbd><kbd>ALT</kbd>+<kbd>↑</kbd></kbd>   | go to split window above                 |
+| <kbd><kbd>ALT</kbd>+<kbd>↓</kbd></kbd>   | go to split window below                 | 
+| <kbd><kbd>ALT</kbd>+<kbd>←</kbd></kbd>   | go to split window left                  |
+| <kbd><kbd>ALT</kbd>+<kbd>→</kbd></kbd>   | go to split window right                 |
+| <kbd>+</kbd>                             | increase window size                     |
+| <kbd>-</kbd>                             | decrease window size                     |
+| <kbd>_</kbd>                             | make window fullscreen                   |
+| <kbd><kbd>AltGr</kbd>+<kbd>u</kbd></kbd> | ü                                        |
+| <kbd><kbd>AltGr</kbd>+<kbd>o</kbd></kbd> | ö                                        |
+| <kbd><kbd>AltGr</kbd>+<kbd>a</kbd></kbd> | ä                                        |
+| <kbd>F5</kbd>                            | color highlighting for an open CSV file  |
 
 
 ## Provided extensions
