@@ -2,6 +2,8 @@
 
 Meaningful default settings for tmux.
 
+![tmux](./images/tmux.png)
+
 The color of the window name in the tmux status bar
 is set to ![colour226](./images/colour226.png).
 If you want to use `tmux` on servers,
