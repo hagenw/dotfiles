@@ -1,5 +1,15 @@
 # tmux config files
 
+Meaningful default settings for tmux.
+The color of the window name in the tmux status bar
+is set to ![colour226](./images/colour226.png).
+
+If you want to use `tmux` on servers,
+that you access from your local `tmux` session,
+you might want to change the color setting
+for them to ![colour159](./images/colour159.png)
+or ![colour112](./images/colour112.png).
+
 Keybindings without prefix key.
 
 | Keybinding                                               | Description               |
