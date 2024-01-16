@@ -30,9 +30,9 @@ Keybindings with prefix <kbd><kbd>CTRL</kbd>+<kbd>a</kbd></kbd> key.
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>End</kbd></kbd>    | last selected window      |
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>Home</kbd></kbd>   | first window              |
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>Insert</kbd></kbd> | new window                |
-| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>Delete</kbd></kbd> | kill window               |
-| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>k</kbd></kbd>      | kill window               |
-| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>q</kbd></kbd>      | kill window               |
+| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>Delete</kbd></kbd> | kill window/pane          |
+| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>k</kbd></kbd>      | kill window/pane          |
+| <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>q</kbd></kbd>      | kill window/pane          |
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>-</kbd></kbd>      | split window vertically   |
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>v</kbd></kbd>      | split window vertically   |
 | <kbd><kbd>CTRL</kbd>+<kbd>a</kbd> <kbd>\|</kbd></kbd>     | split window horizontally |
