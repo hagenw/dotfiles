@@ -1,6 +1,13 @@
 # dotfiles
 
-Configuration files
+Configuration files for
+[bash](./bash),
+[git](./git),
+[tmux](./tmux),
+[vim](./vim).  
+Click on the links
+for further info
+on the configurations.
 
 
 ## Installation
