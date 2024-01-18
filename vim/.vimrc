@@ -121,6 +121,8 @@ nnoremap <silent> <leader>l :set invnumber<CR>
 set spelllang=en,de
 set spellsuggest=fast,20
 set runtimepath+=$HOME/.local/share/vim
+" Ensure spellfile $HOME can contain @ character
+set isfname+=@-@
 set spellfile=$HOME/.local/share/vim/spell/spell.utf-8.add
 
 
