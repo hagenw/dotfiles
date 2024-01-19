@@ -124,4 +124,4 @@ alias ls='ls --color=auto --group-directories-first'
 alias df='df -h'
 alias du='du -h'
 # Open sphinx docs in default browser
-alias docs='xdg-open build/html/index.html &>/dev/null'
+alias docs='xdg-open build/html/index.html &>/dev/null || xdg-open build/sphinx/html/index.html &>/dev/null'
