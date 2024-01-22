@@ -40,6 +40,13 @@ if [[ ${TERM} == *"256color"* ]] && [[ -f "${HOME}/.bashpromptrc" ]]; then
     source "${HOME}/.bashpromptrc"
 fi
 #
+# --- Title
+if [[ "${USER}" == "root" ]]; then
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}: ${PWD/$HOME/~}\007"'
+else
+    PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
+fi
+#
 # --- History
 # Load inputrc (for Matlab like bash history)
 export INPUTRC="${HOME}/.inputrc"
@@ -55,13 +62,6 @@ export HISTFILESIZE=10000
 export HISTSIZE=${HISTFILESIZE}
 # Ensure synchronization between Bash memory and history file
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
-#
-# --- Title
-if [[ "${USER}" == "root" ]]; then
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}: ${PWD/$HOME/~}\007"'
-else
-    PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
-fi
 #
 # --- Less
 # Make less more friendly for non-text input files, see lesspipe(1)
