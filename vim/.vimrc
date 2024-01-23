@@ -33,11 +33,11 @@ colorscheme bubblelights
 
 "------- TEXT WRAPPING -------------------------------------------------------
 "                                                                             '
-" Wrap text after 80 characters and use BufNewFile to highlight lines that    '
+" Wrap text after 88 characters and use BufNewFile to highlight lines that    '
 " extand above this margin. If you change the textwidth in the file, run :e   '
 " to update the highlight. Run :set fo=cawq to wrap only comments.            '
 "-----------------------------------------------------------------------------'
-set textwidth=80
+set textwidth=88
 set formatoptions-=t  " no automatic text wrapping
 set formatoptions+=c  " wrap comments automatically
 au BufRead,BufNewFile *
@@ -369,5 +369,5 @@ let &titleold=&term
 " Break long lines, but preserve the breaking point to restore it later.      '
 " See: https://vim.fandom.com/wiki/Working_with_long_lines
 "-----------------------------------------------------------------------------'
-command! ShortLines :%s/.\{70,79} /&↵\r/g | 1
+command! ShortLines :%s/.\{70,87} /&↵\r/g | 1
 command! LongLines :%s/↵\n// | 1
