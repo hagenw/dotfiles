@@ -125,3 +125,12 @@ alias df='df -h'
 alias du='du -h'
 # Open sphinx docs in default browser
 alias docs='xdg-open build/html/index.html &>/dev/null || xdg-open build/sphinx/html/index.html &>/dev/null'
+# Use pip only in virtual environments
+_pip() {
+    if [[ -z ${VIRTUAL_ENV} ]]; then
+        echo "No VIRTUAL ENVIRONMENT active. If you really want to run pip use $(which pip)."
+    else
+        pip "$@";
+    fi
+}
+alias pip='_pip'
