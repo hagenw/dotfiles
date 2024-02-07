@@ -107,6 +107,11 @@ fi
 if [[ -d "${HOME}/git/pdf-tools/bin" ]]; then
     PATH="${PATH}:${HOME}/git/pdf-tools/bin"
 fi
+#
+# --- mpv
+# Reuse Blu-Ray decrytion keys from MakeMKV
+export LIBAACS_PATH=libmmbd
+export LIBBDPLUS_PATH=libmmbd
 
 
 # ===== ALIASES ==========================================================
