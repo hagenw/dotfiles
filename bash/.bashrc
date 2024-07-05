@@ -107,6 +107,12 @@ fi
 if [[ -d "${HOME}/git/pdf-tools/bin" ]]; then
     PATH="${PATH}:${HOME}/git/pdf-tools/bin"
 fi
+#
+# --- rust
+# https://rustup.rs
+if [[ -f "${HOME}/git/simply-bash/simply-bash.sh" ]]; then
+    source "$HOME/.cargo/env"
+fi
 
 
 # ===== ALIASES ==========================================================
