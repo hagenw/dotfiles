@@ -94,3 +94,5 @@
 	required = true
 [init]
 	defaultBranch = main
+[http]
+	version = HTTP/2
