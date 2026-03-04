@@ -367,7 +367,19 @@ let &titleold=&term
 "------- WORKING WITH LONG LINES ---------------------------------------------
 "                                                                             '
 " Break long lines, but preserve the breaking point to restore it later.      '
-" See: https://vim.fandom.com/wiki/Working_with_long_lines
+" See: https://vim.fandom.com/wiki/Working_with_long_lines                    '
 "-----------------------------------------------------------------------------'
 command! ShortLines :%s/.\{70,87} /&↵\r/g | 1
 command! LongLines :%s/↵\n// | 1
+
+
+"------- BEAUTIFY JSON -------------------------------------------------------
+"                                                                             '
+" Display JSON with line breaks and 2 characters of indent.                   '
+"-----------------------------------------------------------------------------'
+augroup json_format
+  autocmd!
+  autocmd BufReadPost *.json silent! %!jq --indent 2 .
+  autocmd BufReadPost *.json setlocal nomodified
+augroup END
+autocmd BufReadPost *.json silent! %!jq --indent 2 .
