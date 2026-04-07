@@ -383,3 +383,28 @@ augroup json_format
   autocmd BufReadPost *.json setlocal nomodified
 augroup END
 autocmd BufReadPost *.json silent! %!jq --indent 2 .
+
+
+"------- MERGE CONFLICTS -----------------------------------------------------
+"                                                                             '
+" Highlight and handle merge conflicts.                                       '
+" See: https://github.com/rhysd/conflict-marker.vim                           '
+"-----------------------------------------------------------------------------'
+" disable the default highlight group
+let g:conflict_marker_highlight_group = ''
+
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<<\+ .*$'
+let g:conflict_marker_common_ancestors = '^|||||||\+ .*$'
+let g:conflict_marker_end   = '^>>>>>>>\+ .*$'
+
+" Escape sequence for true color foreground (f_8f) and background (t_8b)
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" Enable tru colors to use guibg
+set termguicolors
+highlight ConflictMarkerBegin guibg=#2f7366 ctermbg=22
+highlight ConflictMarkerOurs guibg=#2e5049 ctermbg=23
+highlight ConflictMarkerTheirs guibg=#344f69 ctermbg=24
+highlight ConflictMarkerEnd guibg=#2f628e ctermbg=25
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81 ctermbg=96
