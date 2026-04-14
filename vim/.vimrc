@@ -403,8 +403,8 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Enable tru colors to use guibg
 set termguicolors
-highlight ConflictMarkerBegin guibg=#2f7366 ctermbg=22
-highlight ConflictMarkerOurs guibg=#2e5049 ctermbg=23
-highlight ConflictMarkerTheirs guibg=#344f69 ctermbg=24
-highlight ConflictMarkerEnd guibg=#2f628e ctermbg=25
-highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81 ctermbg=96
+highlight ConflictMarkerBegin ctermbg=246
+highlight ConflictMarkerOurs ctermbg=242
+highlight ConflictMarkerTheirs ctermbg=23
+highlight ConflictMarkerEnd ctermbg=29
+highlight ConflictMarkerCommonAncestorsHunk ctermbg=96
