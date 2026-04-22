@@ -398,11 +398,6 @@ let g:conflict_marker_begin = '^<<<<<<<\+ .*$'
 let g:conflict_marker_common_ancestors = '^|||||||\+ .*$'
 let g:conflict_marker_end   = '^>>>>>>>\+ .*$'
 
-" Escape sequence for true color foreground (f_8f) and background (t_8b)
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" Enable tru colors to use guibg
-set termguicolors
 highlight ConflictMarkerBegin ctermbg=31
 highlight ConflictMarkerOurs ctermbg=24
 highlight ConflictMarkerTheirs ctermbg=23
