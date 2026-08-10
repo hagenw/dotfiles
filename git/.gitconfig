@@ -96,3 +96,5 @@
 	defaultBranch = main
 [http]
 	version = HTTP/2
+[url "git@gitlab.audeering.com:"]
+	insteadOf = git@srv-app-01.audeering.local:
